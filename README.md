@@ -6,9 +6,9 @@ For testing Ansible playbooks and roles on Gitlab CI.  Includes a functional
 systemd for testing system service interaction. Needs the following `tmpfs`
 mounts:
 
-* /run
-* /run/lock
-* /tmp
+* `/run`
+* `/run/lock`
+* `/tmp`
 
 ## Tags
 
