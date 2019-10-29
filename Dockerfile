@@ -9,7 +9,9 @@ RUN apt-get update && \
 		build-essential \
 		libffi-dev \
 		libssl-dev \
+		lsb-release \
 		procps \
+		python-apt \
 		python-dev \
 		python-pip \
 		python-setuptools \
