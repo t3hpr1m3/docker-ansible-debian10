@@ -6,6 +6,7 @@ ENV container docker
 
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
+		apt-utils \
 		build-essential \
 		libffi-dev \
 		libssl-dev \
@@ -24,12 +25,12 @@ RUN apt-get update && \
 	rm -Rf /usr/share/man && \
 	apt-get clean
 
-RUN rm -rf /lib/systemd/system/multi-user.target.wants/* && \
+RUN rm -rf /lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service && \
+	rm -rf /lib/systemd/system/multi-user.target.wants/* && \
 	rm -rf /etc/systemd/system/*.wants/* && \
 	rm -rf /lib/systemd/system/local-fs.target.wants/* && \
 	rm -rf /lib/systemd/system/sockets.target.wants/*udev* && \
 	rm -rf /lib/systemd/system/sockets.target.wants/*initctl* && \
-	rm -rf /lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup* && \
 	rm -rf /lib/systemd/system/systemd-update-utmp*
 
 STOPSIGNAL SIGRTMIN+3
